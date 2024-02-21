@@ -16,21 +16,38 @@ use Illuminate\Support\Facades\Route;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
+// Route::post('/ideas', [IdeaController::class, 'store'])->name('ideas.store');
+
+// Route::get('/ideas/{idea}', [IdeaController::class, 'show'])->name('ideas.show');
+
+// Route::get('/ideas/{idea}/edit', [IdeaController::class, 'edit'])->name('ideas.edit')->middleware('auth');
+
+// Route::put('/ideas/{idea}', [IdeaController::class, 'update'])->name('ideas.update')->middleware('auth');
+
+// Route::delete('/ideas{idea}', [IdeaController::class, 'destroy'])->name('ideas.destroy')->middleware('auth');
+
+// Route::post('/ideas/{idea}/comments', [CommentController::class, 'store'])->name('ideas.comments.store')->middleware('auth');
 
 Route::get('/', [DashboardController::class, 'index'])->name('dashboard');
 
 
-Route::post('/ideas', [IdeaController::class, 'store'])->name('ideas.store');
+Route::group(['prefix' => 'ideas/', 'as' => 'ideas.'], function () {
 
-Route::get('/ideas/{idea}', [IdeaController::class, 'show'])->name('ideas.show');
+    Route::post('/ideas', [IdeaController::class, 'store'])->name('store');
 
-Route::get('/ideas/{idea}/edit', [IdeaController::class, 'edit'])->name('ideas.edit')->middleware('auth');
+    Route::get('/ideas/{idea}', [IdeaController::class, 'show'])->name('show');
 
-Route::put('/ideas/{idea}', [IdeaController::class, 'update'])->name('ideas.update')->middleware('auth');
+    Route::group(['middleware' => ['auth']], function () {
 
-Route::delete('/ideas{idea}', [IdeaController::class, 'destroy'])->name('ideas.destroy')->middleware('auth');
+        Route::get('/ideas/{idea}/edit', [IdeaController::class, 'edit'])->name('edit');
 
-Route::post('/ideas/{idea}/comments', [CommentController::class, 'store'])->name('ideas.comments.store')->middleware('auth');
+        Route::put('/ideas/{idea}', [IdeaController::class, 'update'])->name('update');
+
+        Route::delete('/ideas{idea}', [IdeaController::class, 'destroy'])->name('destroy');
+
+        Route::post('/ideas/{idea}/comments', [CommentController::class, 'store'])->name('comments.store');
+    });
+});
 
 
 Route::get('/register', [AuthController::class, 'register'])->name('register');
