@@ -18,7 +18,8 @@
                     @endguest
                     @auth
                         <li class="nav-item">
-                            <a class="nav-link" href="/profile">{{ Auth::user()->name }}</a>
+                            {{-- I fucking did this --}}
+                            <a class="nav-link" href="/users/{{ Auth::user()->id }}">{{ Auth::user()->name }}</a>
                         </li>
                         <li class="nav-item">
                             <form action="{{ route('logout') }}" method="POST">
