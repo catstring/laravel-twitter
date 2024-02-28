@@ -28,38 +28,38 @@ use Illuminate\Support\Facades\Route;
 
 
 // Route::group(['prefix' => 'ideas/', 'as' => 'ideas.'], function () {
-    // #A
-    // Route::get('/ideas/{idea}', [IdeaController::class, 'show'])->name('show');
+// #A
+// Route::get('/ideas/{idea}', [IdeaController::class, 'show'])->name('show');
 
-    // Route::group(['middleware' => ['auth']], function () {
-        // #A
-        // Route::post('/ideas', [IdeaController::class, 'store'])->name('store');
-        // Route::get('/ideas/{idea}/edit', [IdeaController::class, 'edit'])->name('edit');
-        // Route::put('/ideas/{idea}', [IdeaController::class, 'update'])->name('update');
-        // Route::delete('/ideas{idea}', [IdeaController::class, 'destroy'])->name('destroy');
+// Route::group(['middleware' => ['auth']], function () {
+// #A
+// Route::post('/ideas', [IdeaController::class, 'store'])->name('store');
+// Route::get('/ideas/{idea}/edit', [IdeaController::class, 'edit'])->name('edit');
+// Route::put('/ideas/{idea}', [IdeaController::class, 'update'])->name('update');
+// Route::delete('/ideas{idea}', [IdeaController::class, 'destroy'])->name('destroy');
 
-        // #B
-        // Route::post('/ideas/{idea}/comments', [CommentController::class, 'store'])->name('comments.store');
-    // });
+// #B
+// Route::post('/ideas/{idea}/comments', [CommentController::class, 'store'])->name('comments.store');
+// });
 // });
 
 Route::get('/', [DashboardController::class, 'index'])->name('dashboard');
 // #A
-Route::resource('ideas',IdeaController::class)->except(['index','create','show'])->middleware('auth');
-Route::resource('ideas',IdeaController::class)->only(['show']);
+Route::resource('ideas', IdeaController::class)->except(['index', 'create', 'show'])->middleware('auth');
+Route::resource('ideas', IdeaController::class)->only(['show']);
 // #B
-Route::resource('ideas.comments',CommentController::class)->only(['store'])->middleware('auth');
+Route::resource('ideas.comments', CommentController::class)->only(['store'])->middleware('auth');
 
-Route::resource('users',UserController::class)->only('show','edit','update')->middleware('auth');
+Route::resource('users', UserController::class)->only('show', 'edit', 'update')->middleware('auth');
 
-Route::get('profile',[UserController::class,'profile'])->middleware('auth')->name('profile');
+Route::get('profile', [UserController::class, 'profile'])->middleware('auth')->name('profile');
 
-Route::post('users/{user}/follow',[FollowerController::class,'follow'])->middleware('auth')->name('users.follow');
-Route::post('users/{user}/unfollow',[FollowerController::class,'unfollow'])->middleware('auth')->name('users.unfollow');
+Route::post('users/{user}/follow', [FollowerController::class, 'follow'])->middleware('auth')->name('users.follow');
+Route::post('users/{user}/unfollow', [FollowerController::class, 'unfollow'])->middleware('auth')->name('users.unfollow');
 
 
 // Route::get('/profile', [ProfileController::class , 'index']);
 
 Route::get('/terms', function () {
     return view('terms');
-});
+})->name('terms');
