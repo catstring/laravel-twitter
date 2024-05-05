@@ -72,3 +72,8 @@ Route::get('/feed', FeedController::class)->middleware('auth')->name('feed');
 Route::get('/terms', function () {
     return view('terms');
 })->name('terms');
+
+Route::get('/test', function () {
+    return 'Hello World!';
+});
+
