@@ -3,6 +3,7 @@
 namespace App\Providers;
 
 use illuminate\Pagination\Paginator;
+use Illuminate\Support\Facades\URL;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -20,6 +21,9 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        Paginator::useBootstrapFive();
+        if(config('app.env') === 'production') {
+            URL::forceScheme('https');
+        }
+        // Paginator::useBootstrapFive();
     }
 }
