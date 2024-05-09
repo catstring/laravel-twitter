@@ -73,7 +73,7 @@ Route::get('/terms', function () {
     return view('terms');
 })->name('terms');
 
-Route::get('/test', function () {
-    return 'Hello World!';
-});
+// Route::get('/test', function () {
+//     return 'Hello World!';
+// });
 
