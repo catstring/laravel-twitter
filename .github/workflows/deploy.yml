@@ -28,7 +28,7 @@ jobs:
 
       - name: Copy files to EC2
         run: |
-          scp -r -o StrictHostKeyChecking=no * .[!.]* ec2-user@54.253.52.106:/var/www/laravel-twitter
+          rsync -avz --delete -e "ssh -o StrictHostKeyChecking=no" * ec2-user@54.253.52.106:/var/www/laravel-twitter
 
       - name: Revert ownership to nginx and adjust permissions
         run: |
