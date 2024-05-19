@@ -1,0 +1,53 @@
+name: Deploy Laravel to EC2
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Set up SSH
+        uses: webfactory/ssh-agent@v0.5.3
+        with:
+          ssh-private-key: ${{ secrets.EC2_SSH_KEY }}
+
+      - name: Ensure target directory exists and adjust permissions
+        run: |
+          ssh -o StrictHostKeyChecking=no ec2-user@54.253.52.106 << 'EOF'
+            sudo mkdir -p /var/www/laravel-twitter
+            sudo chown -R ec2-user:ec2-user /var/www/laravel-twitter
+            sudo chmod -R 775 /var/www/laravel-twitter
+          EOF
+
+      - name: Copy files to EC2
+        run: |
+          scp -r -o StrictHostKeyChecking=no * .[!.]* ec2-user@54.253.52.106:/var/www/laravel-twitter
+
+      - name: Revert ownership to nginx and adjust permissions
+        run: |
+          ssh -o StrictHostKeyChecking=no ec2-user@54.253.52.106 << 'EOF'
+            sudo chown -R nginx:nginx /var/www/laravel-twitter
+            sudo chmod -R 755 /var/www/laravel-twitter
+          EOF
+
+      - name: Install dependencies and run artisan commands
+        run: |
+          ssh -t -o StrictHostKeyChecking=no ec2-user@54.253.52.106 << 'EOF'
+            sudo -u nginx bash -c "
+              cd /var/www/laravel-twitter
+              curl -sS https://getcomposer.org/installer | php
+              sudo mv composer.phar /usr/local/bin/composer
+              composer install --no-dev --optimize-autoloader
+              php artisan migrate --force
+              php artisan cache:clear
+              php artisan config:clear
+              php artisan route:clear
+            "
+          EOF
