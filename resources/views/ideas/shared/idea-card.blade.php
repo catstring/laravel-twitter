@@ -5,7 +5,7 @@
                 <img style="width:50px; height:50px" class="me-2 avatar-sm rounded-circle"
                     src="{{ $idea->user->getImageURL() }}" alt="{{ $idea->user->name }}">
                 <div>
-                    <h5 class="card-title mb-0"><a href="#"> {{ $idea->user->name }}
+                    <h5 class="card-title mb-0"><a class="text-muted" href="#"> {{ $idea->user->name }}
                         </a></h5>
                 </div>
             </div>
@@ -13,9 +13,9 @@
                 <form method="POST" action="{{ route('ideas.destroy', $idea->id) }}">
                     @csrf
                     @method('delete')
-                <a class="mx-2" href="{{ route('ideas.edit',$idea->id) }}"> Edit </a>
-                <a href="{{ route('ideas.show',$idea->id) }}"> View </a>
-                <button class="ms-1 btn btn-danger btn-sm"> X </button>
+                <a class="text-muted mx-2" href="{{ route('ideas.edit',$idea->id) }}"> Edit </a>
+                <a class="text-muted" href="{{ route('ideas.show',$idea->id) }}"> View </a>
+                <button class="ms-2 btn btn-secondary btn-sm rounded-circle text-muted" style="width: 20px; height: 20px; padding: 0; display: inline-flex; justify-content: center; align-items: center;"> x </button>
                 </form>
             </div>
         </div>

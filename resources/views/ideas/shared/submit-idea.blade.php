@@ -16,5 +16,5 @@
   </div>
 @endauth
 @guest
-  <h4>Login to share your idea</h4>
+  <h4 class="mt-3">Login to share your idea</h4>
 @endguest

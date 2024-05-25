@@ -5,7 +5,7 @@
             <textarea name="content" class="fs-6 form-control" rows="1"></textarea>
         </div>
         <div>
-            <button type="submit" class="btn btn-primary btn-sm"> Post Comment </button>
+            <button type="submit" class="btn btn-primary btn-sm rounded"> Post </button>
         </div>
     </form>
     <hr>

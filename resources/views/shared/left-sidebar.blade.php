@@ -1,23 +1,26 @@
 <div class="card overflow-hidden">
-    <div class="d-md-flex flex-column flex-md-column mb-2">
+    <div class="d-md-flex flex-column flex-md-column">
         <nav class="nav flex-row flex-md-column">
-                <a class="{{ Route::is('dashboard') ? 'text-white bg-primary rounded' : '' }} nav-link text-dark" href="{{ Route('dashboard') }}">
-                    <span>Home</span></a>
-                <a class="nav-link" href="#">
-                    <span>Explore</span></a>
-                <a class="{{ Route::is('feed') ? 'text-white bg-primary rounded' : '' }} nav-link" href="{{ Route('feed') }}" href="#">
-                    <span>Feed</span></a>
-                <a class="{{ Route::is('terms') ? 'text-white bg-primary rounded' : '' }} nav-link" href="{{ Route('terms') }}">
-                    <span>Terms</span></a>
-                <a class="nav-link" href="#">
-                    <span>Support</span></a>
-                <a class="nav-link" href="#">
-                    <span>Settings</span></a>
+                <a class="{{ Route::is('dashboard') ? 'text-white bg-primary rounded' : 'text-muted' }} nav-link" href="{{ Route('dashboard') }}">
+                    <i class="fa fa-home px-2" style="width: 30px" aria-hidden="true"></i>
+                    <span class="d-none d-md-inline">Home</span></a>
+                <a class="nav-link text-muted" href="#">
+                    <i class="fa fa-search px-2" style="width: 30px" aria-hidden="true"></i>
+                    <span class="d-none d-md-inline">Explore</span></a>
+                <a class="{{ Route::is('feed') ? 'text-white bg-primary rounded' : 'text-muted' }} nav-link" href="{{ Route('feed') }}" href="#">
+                    <i class="fa fa-comments px-2" style="width: 30px" aria-hidden="true"></i>
+                    <span class="d-none d-md-inline">Feed</span></a>
+                <a class="{{ Route::is('terms') ? 'text-white bg-primary rounded' : 'text-muted' }} nav-link" href="{{ Route('terms') }}">
+                    <i class="fa fa-paperclip px-2" style="width: 30px" aria-hidden="true"></i>
+                    <span class="d-none d-md-inline">Terms</span></a>
+                <a class="nav-link text-muted" href="#">
+                    <i class="fa fa-user px-2" style="width: 30px"  aria-hidden="true"></i>
+                    <span class="d-none d-md-inline">Profile</span></a>
+                <a class="nav-link text-muted" href="#">
+                    <i class="fa fa-cog px-2" style="width: 30px" aria-hidden="true"></i>
+                    <span class="d-none d-md-inline">Settings</span></a>
         </nav>
     </div>
-</div>
-<div class="card-footer text-center py-2 mb-2">
-    <a class="btn btn-link btn-sm" href="#">View Profile </a>
 </div>
 
 <style>
