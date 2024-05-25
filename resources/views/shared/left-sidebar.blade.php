@@ -1,4 +1,4 @@
-<div class="card overflow-hidden">
+<div class="card overflow-hidden mb-3">
     <div class="d-md-flex flex-column flex-md-column">
         <nav class="nav flex-row flex-md-column">
                 <a class="{{ Route::is('dashboard') ? 'text-white bg-primary rounded' : 'text-muted' }} nav-link" href="{{ Route('dashboard') }}">
