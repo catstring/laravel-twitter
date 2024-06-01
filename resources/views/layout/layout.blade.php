@@ -14,7 +14,7 @@
       } 
     </style>
 
-    <title>Twitter Clone Bootstrap 5 Example</title>
+    <title>echO</title>
 
     <link href="https://bootswatch.com/5/cyborg/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
 
