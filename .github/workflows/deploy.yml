@@ -23,16 +23,16 @@ jobs:
           ssh -o StrictHostKeyChecking=no ec2-user@13.210.154.160 << 'EOF'
             REPO_URL="https://github.com/catstring/laravel-twitter.git"
             PROJECT_DIR="/var/www"
-            PROJECT-NAME="laravel-twitter"
+            PROJECT_NAME="laravel-twitter"
 
             sudo chown -R ec2-user:ec2-user \$PROJECT_DIR
 
             cd \$PROJECT_DIR           
-            if [ ! -d "\$PROJECT-NAME" ]; then
+            if [ ! -d "\$PROJECT_NAME" ]; then
               sudo git clone \$REPO_URL
               composer install
             else
-              cd \$PROJECT-NAME
+              cd \$PROJECT_NAME
               sudo git pull
             fi
 
