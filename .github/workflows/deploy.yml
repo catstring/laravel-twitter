@@ -20,22 +20,25 @@ jobs:
 
       - name: do all
         run: |
-          ssh -o StrictHostKeyChecking=no ec2-user@13.210.154.160 << 'EOF'
-            export REPO_URL="https://github.com/catstring/laravel-twitter.git"
-            export PROJECT_DIR="/var/www"
-            export PROJECT_NAME="laravel-twitter"
+          ssh -o StrictHostKeyChecking=no ec2-user@13.210.154.160 << EOF
+            PROJECT_DIR="/var/www"
+            PROJECT_NAME="laravel-twitter"
+            REPO_URL="https://github.com/catstring/laravel-twitter.git"
 
-            sudo chown -R ec2-user:ec2-user \$PROJECT_DIR
+            sudo chown -R ec2-user:ec2-user \${PROJECT_DIR}
+            cd \${PROJECT_DIR}
 
-            cd \$PROJECT_DIR           
-            if [ ! -d "\$PROJECT_NAME" ]; then
-              sudo git clone \$REPO_URL
-              composer install
+            # Check if the directory exists
+            if [ ! -d "\${PROJECT_NAME}" ]; then
+              # Directory does not exist, clone the repository
+              sudo git clone \${REPO_URL}
+              cd \${PROJECT_NAME}
             else
-              cd \$PROJECT_NAME
+              # Directory exists, pull the latest changes
+              cd \${PROJECT_NAME}
               sudo git pull
             fi
 
-            sudo chown -R nginx:nginx \$PROJECT_DIR
+            sudo chown -R nginx:nginx \${PROJECT_DIR}
           EOF
 
