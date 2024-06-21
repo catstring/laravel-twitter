@@ -45,35 +45,37 @@ use Illuminate\Support\Facades\Route;
 // Route::post('/ideas/{idea}/comments', [CommentController::class, 'store'])->name('comments.store');
 // });
 // });
+Route::prefix('echo')->group(function(){
 
-Route::get('/', [DashboardController::class, 'index'])->name('dashboard');
-// #A
-Route::resource('ideas', IdeaController::class)->except(['index', 'create', 'show'])->middleware('auth');
-Route::resource('ideas', IdeaController::class)->only(['show']);
-// #B
-Route::resource('ideas.comments', CommentController::class)->only(['store'])->middleware('auth');
+    Route::get('/', [DashboardController::class, 'index'])->name('dashboard');
+    // #A
+    Route::resource('ideas', IdeaController::class)->except(['index', 'create', 'show'])->middleware('auth');
+    Route::resource('ideas', IdeaController::class)->only(['show']);
+    // #B
+    Route::resource('ideas.comments', CommentController::class)->only(['store'])->middleware('auth');
 
-Route::resource('users', UserController::class)->only('show');
-Route::resource('users', UserController::class)->only('edit', 'update')->middleware('auth');
+    Route::resource('users', UserController::class)->only('show');
+    Route::resource('users', UserController::class)->only('edit', 'update')->middleware('auth');
 
-Route::get('profile', [UserController::class, 'profile'])->middleware('auth')->name('profile');
+    Route::get('profile', [UserController::class, 'profile'])->middleware('auth')->name('profile');
 
-Route::post('users/{user}/follow', [FollowerController::class, 'follow'])->middleware('auth')->name('users.follow');
-Route::post('users/{user}/unfollow', [FollowerController::class, 'unfollow'])->middleware('auth')->name('users.unfollow');
+    Route::post('users/{user}/follow', [FollowerController::class, 'follow'])->middleware('auth')->name('users.follow');
+    Route::post('users/{user}/unfollow', [FollowerController::class, 'unfollow'])->middleware('auth')->name('users.unfollow');
 
-Route::post('ideas/{idea}/like', [IdeaLikeController::class, 'like'])->middleware('auth')->name('ideas.like');
-Route::post('ideas/{idea}/unlike', [IdeaLikeController::class, 'unlike'])->middleware('auth')->name('ideas.unlike');
+    Route::post('ideas/{idea}/like', [IdeaLikeController::class, 'like'])->middleware('auth')->name('ideas.like');
+    Route::post('ideas/{idea}/unlike', [IdeaLikeController::class, 'unlike'])->middleware('auth')->name('ideas.unlike');
 
-Route::get('/feed', FeedController::class)->middleware('auth')->name('feed');
+    Route::get('/feed', FeedController::class)->middleware('auth')->name('feed');
 
 
-// Route::get('/profile', [ProfileController::class , 'index']);
+    // Route::get('/profile', [ProfileController::class , 'index']);
 
-Route::get('/terms', function () {
-    return view('terms');
-})->name('terms');
+    Route::get('/terms', function () {
+        return view('terms');
+    })->name('terms');
 
-// Route::get('/test', function () {
-//     return 'Hello World!';
-// });
+    // Route::get('/test', function () {
+    //     return 'Hello World!';
+    // });
 
+});

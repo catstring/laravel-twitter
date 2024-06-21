@@ -32,7 +32,7 @@ jobs:
             if [ ! -d "\${PROJECT_NAME}" ]; then
               # Directory does not exist, clone the repository
               sudo git clone \${REPO_URL}
-              cd \${PROJECT_NAME}
+              composer install
             else
               # Directory exists, pull the latest changes
               cd \${PROJECT_NAME}
