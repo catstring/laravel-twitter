@@ -3,7 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 
-Route::prefix('echo')->group(function(){
+// Route::prefix('echo')->group(function(){
     
     Route::get('/register', [AuthController::class, 'register'])->name('register');
 
@@ -15,4 +15,4 @@ Route::prefix('echo')->group(function(){
 
     Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 
-});
+// });

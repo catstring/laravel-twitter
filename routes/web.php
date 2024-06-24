@@ -45,7 +45,7 @@ use Illuminate\Support\Facades\Route;
 // Route::post('/ideas/{idea}/comments', [CommentController::class, 'store'])->name('comments.store');
 // });
 // });
-Route::prefix('echo')->group(function(){
+// Route::prefix('echo')->group(function(){
 
     Route::get('/', [DashboardController::class, 'index'])->name('dashboard');
     // #A
@@ -78,4 +78,4 @@ Route::prefix('echo')->group(function(){
     //     return 'Hello World!';
     // });
 
-});
+// });
