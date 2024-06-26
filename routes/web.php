@@ -8,6 +8,7 @@ use App\Http\Controllers\FeedController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\FollowerController;
 use App\Http\Controllers\IdeaLikeController;
+use App\Http\Controllers\Admin\DashboardController as AdminDashboardController;
 use App\Models\Idea;
 use Illuminate\Support\Facades\Route;
 
@@ -77,5 +78,7 @@ use Illuminate\Support\Facades\Route;
     // Route::get('/test', function () {
     //     return 'Hello World!';
     // });
+
+    Route::get('/admin', [AdminDashboardController::class, 'index'])->name('admin.dashboard')->middleware(['auth', 'admin']);
 
 // });
