@@ -10,13 +10,17 @@
                 </div>
             </div>
             <div>
-                <form method="POST" action="{{ route('ideas.destroy', $idea->id) }}">
-                    @csrf
-                    @method('delete')
-                <a class="text-muted mx-2" href="{{ route('ideas.edit',$idea->id) }}"> Edit </a>
-                <a class="text-muted" href="{{ route('ideas.show',$idea->id) }}"> View </a>
-                <button class="ms-2 btn btn-secondary btn-sm rounded-circle text-muted" style="width: 20px; height: 20px; padding: 0; display: inline-flex; justify-content: center; align-items: center;"> x </button>
-                </form>
+                @auth()
+                    @can('idea.edit', $idea)
+                        <form method="POST" action="{{ route('ideas.destroy', $idea->id) }}">
+                            @csrf
+                            @method('delete')
+                            <a class="text-muted mx-2" href="{{ route('ideas.edit',$idea->id) }}"> Edit </a>
+                            <a class="text-muted" href="{{ route('ideas.show',$idea->id) }}"> View </a>
+                            <button class="ms-2 btn btn-secondary btn-sm rounded-circle text-muted" style="width: 20px; height: 20px; padding: 0; display: inline-flex; justify-content: center; align-items: center;"> x </button>
+                        </form>
+                    @endcan
+                @endauth
             </div>
         </div>
     </div>
