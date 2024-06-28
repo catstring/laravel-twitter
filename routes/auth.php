@@ -5,6 +5,8 @@ use App\Http\Controllers\AuthController;
 
 // Route::prefix('echo')->group(function(){
     
+Route::group(['middleware' => 'guest'], function () {
+    
     Route::get('/register', [AuthController::class, 'register'])->name('register');
 
     Route::post('/register', [AuthController::class, 'store']);
@@ -13,6 +15,8 @@ use App\Http\Controllers\AuthController;
 
     Route::post('/login', [AuthController::class, 'authenticate']);
 
+    });
+    
     Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 
 // });
