@@ -22,31 +22,6 @@ use Illuminate\Support\Facades\Route;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
-// Route::post('/ideas', [IdeaController::class, 'store'])->name('ideas.store');
-// Route::get('/ideas/{idea}', [IdeaController::class, 'show'])->name('ideas.show');
-// Route::get('/ideas/{idea}/edit', [IdeaController::class, 'edit'])->name('ideas.edit')->middleware('auth');
-// Route::put('/ideas/{idea}', [IdeaController::class, 'update'])->name('ideas.update')->middleware('auth');
-// Route::delete('/ideas{idea}', [IdeaController::class, 'destroy'])->name('ideas.destroy')->middleware('auth');
-// Route::post('/ideas/{idea}/comments', [CommentController::class, 'store'])->name('ideas.comments.store')->middleware('auth');
-
-
-
-// Route::group(['prefix' => 'ideas/', 'as' => 'ideas.'], function () {
-// #A
-// Route::get('/ideas/{idea}', [IdeaController::class, 'show'])->name('show');
-
-// Route::group(['middleware' => ['auth']], function () {
-// #A
-// Route::post('/ideas', [IdeaController::class, 'store'])->name('store');
-// Route::get('/ideas/{idea}/edit', [IdeaController::class, 'edit'])->name('edit');
-// Route::put('/ideas/{idea}', [IdeaController::class, 'update'])->name('update');
-// Route::delete('/ideas{idea}', [IdeaController::class, 'destroy'])->name('destroy');
-
-// #B
-// Route::post('/ideas/{idea}/comments', [CommentController::class, 'store'])->name('comments.store');
-// });
-// });
-// Route::prefix('echo')->group(function(){
 
     Route::get('/', [DashboardController::class, 'index'])->name('dashboard');
     // #A
@@ -69,16 +44,10 @@ use Illuminate\Support\Facades\Route;
     Route::get('/feed', FeedController::class)->middleware('auth')->name('feed');
 
 
-    // Route::get('/profile', [ProfileController::class , 'index']);
 
     Route::get('/terms', function () {
         return view('terms');
     })->name('terms');
 
-    // Route::get('/test', function () {
-    //     return 'Hello World!';
-    // });
-
     Route::get('/admin', [AdminDashboardController::class, 'index'])->name('admin.dashboard')->middleware(['auth', 'can:admin']);
 
-// });

@@ -5,7 +5,7 @@
                 <img style="width:25px; height:25px" class="me-2 avatar-sm rounded-circle"
                     src="{{ $idea->user->getImageURL() }}" alt="{{ $idea->user->name }}">
                 <div>
-                    <h5 class="card-title mb-0"><a class="text-muted" href="#"> {{ $idea->user->name }}
+                    <h5 class="card-title mb-0"><a class="text-muted" href="users/{{ $idea->user->id }}"> {{ $idea->user->name }}
                         </a></h5>
                 </div>
             </div>

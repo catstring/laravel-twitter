@@ -20,7 +20,7 @@ jobs:
 
       - name: do all
         run: |
-          ssh -o StrictHostKeyChecking=no ec2-user@13.210.154.160 << EOF
+          ssh -o StrictHostKeyChecking=no ec2-user@13.21.144.16 << EOF
             PROJECT_DIR="/var/www"
             PROJECT_NAME="laravel-twitter"
             REPO_URL="https://github.com/catstring/laravel-twitter.git"
