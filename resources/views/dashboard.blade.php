@@ -1,5 +1,7 @@
 @extends('layout.app')
 
+@section('title', 'Dashboard')
+
 @section('content')
     <div class="container py-4">
         <div class="row">

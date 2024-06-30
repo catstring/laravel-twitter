@@ -1,5 +1,7 @@
 @extends('layout.app')
 
+@section('title', 'Terms')
+
 @section('content')
 <!DOCTYPE html>
 <html lang="EN">

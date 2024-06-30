@@ -14,7 +14,7 @@
       } 
     </style>
 
-    <title>echO</title>
+    <title> @yield('title') | {{ config('app.name') }} </title>
 
     <link href="https://bootswatch.com/5/cyborg/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
 
