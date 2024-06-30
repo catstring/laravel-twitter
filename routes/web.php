@@ -23,6 +23,11 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+    Route::get('lang/{lang}', function($lang){
+        session()->put('locale', $lang);
+        return redirect()->route('dashboard');
+    })->name('lang');
+    
     Route::get('/', [DashboardController::class, 'index'])->name('dashboard');
     // #A
     Route::resource('ideas', IdeaController::class)->except(['index', 'create', 'show'])->middleware('auth');

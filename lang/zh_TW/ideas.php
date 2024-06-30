@@ -2,6 +2,6 @@
 
 return [
     
-    'login_to_share' => '登入分享你的想法'
+    'login_to_share' => '登入分享你的迴音'
 
 ];
