@@ -9,13 +9,6 @@ class DashboardController extends Controller
 {
     public function index()
     {
-                            // $idea = new Idea([
-                            //     'content' =>'great job'
-                            // ]);
-                            // $idea->save();
-
-                            // dump(Idea::all());
-
         $ideas = Idea::orderBy('created_at','DESC');
 
         if(request()->has('search')){
@@ -23,8 +16,6 @@ class DashboardController extends Controller
         }
 
         return view("dashboard",[
-            // 'ideas' => Idea::orderBy('created_at','DESC')->get()
-            // 'ideas' => Idea::orderBy('created_at','DESC')->paginate(5)
             'ideas' => $ideas ->paginate(5)
         ]);
     }
