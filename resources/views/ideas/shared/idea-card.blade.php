@@ -2,7 +2,7 @@
     <div class="px-3 pt-4 pb-2">
         <div class="d-flex align-items-center justify-content-between">
             <div class="d-flex align-items-center">
-                <img style="width:25px; height:25px" class="me-2 avatar-sm rounded-circle"
+                <img style="width:50px;" class="me-2 avatar-sm rounded-circle"
                     src="{{ $idea->user->getImageURL() }}" alt="{{ $idea->user->name }}">
                 <div>
                     <h5 class="card-title mb-0"><a class="text-muted" href="users/{{ $idea->user->id }}"> {{ $idea->user->name }}

@@ -14,13 +14,8 @@ class DashboardController extends Controller
             $query->search(request('search', ''));
         })->orderBy('created_at','DESC')->paginate(5);
 
-        $topUsers = User::withCount('ideas')
-            ->orderBy('created_at', 'DESC')
-            ->limit(5)->get();
-
         return view("dashboard",[
             'ideas' => $ideas,
-            'topUsers' => $topUsers
         ]);
     }
 }
