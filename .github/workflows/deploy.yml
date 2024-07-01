@@ -39,6 +39,10 @@ jobs:
               sudo git pull
             fi
 
+            php artisan cache:clear
+            php artisan config:clear
+            php artisan route:clear
+
             sudo chown -R nginx:nginx \${PROJECT_DIR}
           EOF
 
