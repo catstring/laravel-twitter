@@ -20,14 +20,14 @@
                     </div>
                     <div class="col-sm-6 col-md-4">
                         @include('shared.widget', [
-                            'title' => 'Total Idea',
+                            'title' => 'Total Echos',
                             'icon' => 'fas fa-lightbulb',
                             'data' => $totalIdeas
                         ])
                     </div>
                     <div class="col-sm-6 col-md-4">
                         @include('shared.widget', [
-                            'title' => 'Total Comment',
+                            'title' => 'Total Comments',
                             'icon' => 'fas fa-comment',
                             'data' => $totalComments
                         ])

@@ -1,6 +1,6 @@
 @extends('layout.app')
 
-@section('title', 'Ideas | Admin Dashboard')
+@section('title', 'Echos | Admin Dashboard')
 
 @section('content')
     <div class="container py-4">
@@ -9,7 +9,7 @@
                 @include('admin.shared.left-sidebar')
             </div>
             <div class="col-md-9 col-sm-12">
-                <h1>Ideas</h1>
+                <h1>Echos</h1>
 
                 <table class="table table-striped mt-3">
                     <thead class="table-dark">

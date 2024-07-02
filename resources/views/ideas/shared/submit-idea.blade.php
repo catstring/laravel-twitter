@@ -1,5 +1,5 @@
 @auth
-  <h4> Share yours ideas </h4>
+  <h4> Share your echos </h4>
   <div class="row">
     <form action="{{ route('ideas.store') }}" method="post">
       @csrf

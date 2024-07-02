@@ -9,8 +9,8 @@
             <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
                 <ul class="navbar-nav">
                     <li class="nav-item">
-                        <a class="btn btn-link btn-sm" href="{{ route('lang', 'en') }}">English</a>
-                        <a class="btn btn-link btn-sm" href="{{ route('lang', 'zh-TW') }}">繁體中文</a>
+                        {{-- <a class="btn btn-link btn-sm" href="{{ route('lang', 'en') }}">English</a>
+                        <a class="btn btn-link btn-sm" href="{{ route('lang', 'zh-TW') }}">繁體中文</a> --}}
                     </li>
                     @guest
                         <li class="nav-item">
