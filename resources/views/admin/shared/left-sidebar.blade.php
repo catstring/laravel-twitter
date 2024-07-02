@@ -13,6 +13,10 @@
                     <i class="fa fa-home px-2" style="width: 30px" aria-hidden="true"></i>
                     <span class="d-none d-md-inline">Ideas</span>
                 </a>
+                <a class="{{ Route::is('admin.comments.index') ? 'text-white bg-primary rounded' : 'text-muted' }} nav-link" href="{{ Route('admin.comments.index') }}">
+                    <i class="fa fa-home px-2" style="width: 30px" aria-hidden="true"></i>
+                    <span class="d-none d-md-inline">Comments</span>
+                </a>
         </nav>
     </div>
 </div>

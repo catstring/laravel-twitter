@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\CommentController as AdminCommentController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\IdeaController;
 use App\Http\Controllers\CommentController;
@@ -62,5 +63,6 @@ use Illuminate\Support\Facades\Route;
         // Route::get('/users', [AdminUserController::class, 'index'])->name('users.index');
         Route::resource('users', AdminUserController::class)->only('index');
         Route::resource('ideas', AdminIdeaController::class)->only('index');
+        Route::resource('comments', AdminCommentController::class)->only('index', 'destroy');
            
     });
