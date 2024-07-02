@@ -2,6 +2,6 @@
 
 return [
     
-    'login_to_share' => 'Login to share your idea'
+    'login_to_share' => 'Login to share your echo'
 
 ];
