@@ -20,7 +20,8 @@
                         <p class="text-center my-4">No results Found</p>
                     @endforelse
                 <div class="mt-3">
-                    {{ $ideas->withQueryString()->links('pagination::bootstrap-4') }}
+                    {{-- {{ $ideas->withQueryString()->links('pagination::bootstrap-4') }} --}}
+                    {{ $ideas->links() }}
                 </div>
             </div>
             <div class="col-md-3 col-sm-12">

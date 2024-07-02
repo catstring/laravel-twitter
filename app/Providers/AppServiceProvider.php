@@ -26,7 +26,7 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        // Paginator::useBootstrapFive();
+        Paginator::useBootstrapFive();
 
         $topUsers = Cache::remember('topUsers', 60 * 1, function(){
             return User::withCount('ideas')

@@ -1,0 +1,27 @@
+<div class="card overflow-hidden mb-3">
+    <div class="d-md-flex flex-column flex-md-column">
+        <nav class="nav flex-row flex-md-column">
+                <a class="{{ Route::is('admin.dashboard') ? 'text-white bg-primary rounded' : 'text-muted' }} nav-link" href="{{ Route('admin.dashboard') }}">
+                    <i class="fa fa-home px-2" style="width: 30px" aria-hidden="true"></i>
+                    <span class="d-none d-md-inline">Dashboard</span></a>
+                <a class="{{ Route::is('admin.users') ? 'text-white bg-primary rounded' : 'text-muted' }} nav-link" href="{{ Route('admin.users') }}">
+                    <i class="fa fa-home px-2" style="width: 30px" aria-hidden="true"></i>
+                    <span class="d-none d-md-inline">Users</span></a>
+        </nav>
+    </div>
+</div>
+
+<style>
+    @media (max-width: 767.98px) {
+        .nav {
+                display: flex;
+                justify-content: space-around;
+                flex-wrap: wrap;
+            }
+        .nav-link {
+            font-size: 0.875rem;
+            padding-left: 0.2rem !important;
+            padding-right: 0.2rem !important;
+        }
+    }
+</style>
